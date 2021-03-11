@@ -18,7 +18,7 @@ app.use(express.static('public'))
 
 app.get('/', (req, res) => {
   return res.render("indexView", {
-    title: "Tu Presidente"
+    title: "Voto Libre"
   });
 })
 app.get('/sondeo', async (req, res) => {
