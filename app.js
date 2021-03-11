@@ -4,7 +4,7 @@ const app = express();
 const connectDB = require('./config/db');
 const bodyParser = require('body-parser');
 const Votante = require('./models/VotanteModel');
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 5000;
 connectDB();
 
 app.set('view engine', 'ejs');
