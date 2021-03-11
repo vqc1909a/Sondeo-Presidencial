@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <%- include('./partials/headView.ejs'); %>
+</head>
+<body>
+ <%- include('./partials/headerView.ejs'); %>
+  <main>
+    <div class="sondeo-torta">
+      <div class="container-fluid container-lg">
+        <div class="row d-flex flex-column justify-content-center align-items-center py-md-5">
+          <div id="chartDonut"></div>
+        </div>
+      </div>
+    </div>
+     <div class="sondeo-bar">
+      <div class="container-fluid container-lg">
+        <div class="row d-flex flex-column justify-content-center align-items-center py-3 py-md-5">
+          <div id="chartBar"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <%- include('./partials/footerView.ejs'); %>
+  <script src="/js/bootstrap.bundle.js"></script>
+  <script src="/dist/bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script>
+
+    let acuna = JSON.parse('<%- acuna %>');
+    let forsyth = JSON.parse('<%- forsyth %>');
+    let soto = JSON.parse('<%- soto %>');
+    let humala = JSON.parse('<%- humala %>');
+    let lescano = JSON.parse('<%- lescano %>');
+    let guzman = JSON.parse('<%- guzman %>');
+    let fujimori = JSON.parse('<%- fujimori %>');
+    let arana = JSON.parse('<%- arana %>');
+    let castilla = JSON.parse('<%- castilla %>');
+    let lopez = JSON.parse('<%- lopez %>');
+    let urresti = JSON.parse('<%- urresti %>');
+    let mendoza = JSON.parse('<%- mendoza %>');
+
+    let total = acuna + forsyth + soto + humala + lescano + guzman + fujimori + arana + castilla + lopez + urresti + mendoza;
+
+    let optionsDonut = {
+        series: [1 + acuna, 1 + forsyth, 1 + soto, 1 + humala, 1 + lescano, 1 + guzman, 1 + fujimori, 1 + arana, 1 + castilla, 1 + lopez, 1 + urresti, 1 + mendoza],
+        labels: ["Cesar Acuña", "George Forsyth", "Hernando de Soto", "Ollanta Humala", "Yonhy  Lescano", "Julio Guzman", "Keiko Fujimori", "Marco Arana", "Pedro Castillo", "Rafael Lopez", "Daniel Urresti", "Veronica Mendoza"],
+        chart: {
+            type: 'donut',
+            height: "100%",
+            width: "100%"
+        },
+        //Estos son los colores de los tooltips que vuelan de cada grafico
+        colors: ["#17509B", "#EB1C24", "#153F93", "#DA251C", "#CD3333", "#4F1B7F", "#EC6E00", "#4E6604", "#FAB500", "#61ABD8", "#0B4E9D", "#61BD10"],
+        fill: {
+            colors: ["#17509B", "#EB1C24", "#153F93", "#DA251C", "#CD3333", "#4F1B7F", "#EC6E00", "#4E6604", "#FAB500", "#61ABD8", "#0B4E9D", "#61BD10"],
+            opacity: 0.9,
+            type: 'solid',
+            gradient: {
+                shade: 'dark',
+                type: "horizontal",
+                shadeIntensity: 0.5,
+                gradientToColors: undefined,
+                inverseColors: true,
+                opacityFrom: 1,
+                opacityTo: 1,
+                stops: [0, 50, 100],
+                colorStops: []
+            },
+        },
+        plotOptions: {
+            pie: {
+                expandOnClick: false,
+                donut: {
+                size: '60%',
+                labels: {
+                    show: true,
+                    name: {
+                        show: true,
+                        fontSize: '22px',
+                        fontFamily: 'Arial, Helvetica, sans-serif',
+                        fontWeight: 600,
+                        color: undefined,
+                        offsetY: -10,
+                        formatter: function (val) {
+                            return val
+                        }
+                    },
+                    value: {
+                        show: true,
+                        fontSize: '14px',
+                        fontFamily: 'Helvetica, Arial, sans-serif',
+                        fontWeight: 700,
+                        color: undefined,
+                        offsetY: 16,
+                        formatter: function (val) {
+                            return `N° DE VOTOS: ${val}`
+                        }
+                    }
+                }
+                }
+            }
+        },
+        legend: {
+            fontSize: '12px',
+            fontFamily: 'Arial, Helvetica',
+            fontWeight: 700,
+            markers: {
+                width: 20,
+                height: 20,
+                strokeWidth: 5,
+                strokeColor: '#fff',
+                fillColors: ["#17509B", "#EB1C24", "#153F93", "#DA251C", "#CD3333", "#4F1B7F", "#EC6E00", "#4E6604", "#FAB500", "#61ABD8", "#0B4E9D", "#61BD10"],
+                radius: 20,
+                customHTML: undefined,
+                onClick: undefined,
+                offsetX: 0,
+                offsetY: 0,
+                
+            },
+            itemMargin: {
+                horizontal: 50,
+                vertical: 5
+            },
+            onItemClick: {
+              toggleDataSeries: true
+            },
+            onItemHover: {
+                highlightDataSeries: true
+            },  
+        },
+        responsive: [{
+            breakpoint: 768,
+            options: {
+                // chart: {
+                //     width: 200
+                // },
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+        // , 
+        // {
+        //     breakpoint: 576,
+        //     options: {
+        //         // chart: {
+        //         //     width: 200
+        //         // },
+        //         legend: {
+        //             show: false,
+        //         }
+        //     }
+        // }
+        ],
+        dataLabels: {
+            
+            style: {
+                fontSize: '14px',
+                fontFamily: 'Helvetica, Arial, sans-serif',
+                fontWeight: 'normal',
+                colors: ['#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000']
+            },
+            background: {
+                enabled: true,
+                foreColor: '#fff',
+                padding: 5,
+                borderRadius: 2,
+                borderWidth: 1,
+                borderColor: '#fff',
+                opacity: 0.6,
+                dropShadow: {
+                    enabled: false,
+                    top: 1,
+                    left: 1,
+                    blur: 1,
+                    color: '#000',
+                    opacity: 0.45
+                }
+            }
+        },
+        title: {
+            text: 'Distribución Porcentual de Votos',
+            align: 'center',
+            margin: 60,
+            floating: true,
+            style: {
+                fontSize:  '20px',
+                fontWeight:  'bold',
+                fontFamily:  undefined,
+                color:  '#bf111f'
+            }
+        }
+    };
+    let optionsBar = {
+        series: [{
+              name: 'N° de Votos',
+              data: [1 + acuna, 1 + forsyth, 1 + soto, 1 + humala, 1 + lescano, 1 + guzman, 1 + fujimori, 1 + arana, 1 + castilla, 1 + lopez, 1 + urresti, 1 + mendoza]
+        }],
+        chart: {
+            type: 'bar',
+            height: "100%"
+        },
+        plotOptions: {
+            bar: {
+                barHeight: '100%',
+                distributed: true,
+                horizontal: true,
+                dataLabels: {
+                    position: 'bottom'
+                },
+                colors: {
+                  backgroundBarColors: ["#f8f9fa ", "#f8f9fa ", "#f8f9fa ", "#f8f9fa ", "#f8f9fa ", "#f8f9fa ", "#f8f9fa ", "#f8f9fa ", "#f8f9fa ", "#f8f9fa ", "#f8f9fa ", "#f8f9fa "],
+                  backgroundBarOpacity: 1,
+                  backgroundBarRadius: 0,
+              },
+            }
+        },
+        colors: ["rgba(23, 80, 155, .6)", "rgba(235, 28, 36, .6)", "rgba(21, 63, 147, .6)", "rgba(218, 37, 28, .6)", "rgba(205, 51, 51, .6)", "rgba(79, 27, 127, .6)", "rgba(236, 110, 0, .6)", "rgba(78, 102, 4, .6)", "rgba(250, 181, 0, .6)", "rgba(97, 171, 216, .6)", "rgba(11, 78, 157, .6)", "rgba(97, 189, 16, .6)"],
+
+        dataLabels: {
+              enabled: true,
+              textAnchor: 'start',
+              style: {
+                colors: ['#fff'],
+                fontSize: '12px',
+                fontFamily: 'Helvetica, Arial, sans-serif',
+                fontWeight: 'normal',
+              },
+              formatter: function (val, opt) {
+                return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val
+              },
+              offsetX: 0,
+              dropShadow: {
+                enabled: true
+              }
+            },
+        stroke: {
+              width: 1,
+              colors: ['#fff']
+        },
+        xaxis: {
+            categories: ['Cesar Acuña', 'George Forsyth', 'Hernando de Soto', 'Ollanta Humala', 'Yonhy  Lescano', 'Julio Guzman', 'Keiko Fujimori', 'Marco Arana', 'Pedro Castillo', "Rafael Lopez", "Daniel Urresti", "Veronica Mendoza"],
+        },
+        yaxis: {
+            labels: {
+                show: false
+            },
+            max: total
+        },
+        title: {
+            text: 'Distribución por Cantidad de Votos',
+            align: 'center',
+            margin: 20,
+            floating: true,
+            style: {
+                fontSize:  '20px',
+                fontWeight:  'bold',
+                fontFamily:  undefined,
+                color:  '#bf111f'
+            }
+        },
+        tooltip: {
+            theme: 'dark',
+            x: {
+            show: false
+            },
+            y: {
+            title: {
+                formatter: function () {
+                return ''
+                }
+            }
+            }
+        },
+        
+    };
+
+    let chartDonut = new ApexCharts(document.querySelector("#chartDonut"), optionsDonut);
+        chartDonut.render();
+    let chartBar = new ApexCharts(document.querySelector("#chartBar"), optionsBar);
+    chartBar.render();
+  </script>
+</body>
+</html>

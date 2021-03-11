@@ -1,0 +1,34 @@
+{
+  "name": "encuesta-congreso-pasco",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./app.js",
+    "dev": "nodemon ./app.js",
+    "watch": "webpack --watch --mode development",
+    "desarrollo": "concurrently \"npm run dev \" \"npm run watch\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apexcharts": "^3.25.0",
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.6.0",
+    "concurrently": "^6.0.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.19",
+    "sweetalert2": "^10.15.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.8",
+    "@babel/preset-env": "^7.13.9",
+    "babel-loader": "^8.2.2",
+    "nodemon": "^2.0.7",
+    "webpack": "^5.24.3",
+    "webpack-cli": "^4.5.0"
+  }
+}

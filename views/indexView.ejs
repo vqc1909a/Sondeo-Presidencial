@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <%- include('./partials/headView.ejs'); %>
+</head>
+<body>
+ <%- include('./partials/headerView.ejs'); %>
+  <main>
+    <div class="hero">
+      <div class="container-fluid container-lg">
+        <div class="row">
+          <div class="col-12 text-center text-lg-start col-lg-5 order-1 d-flex flex-column justify-content-center pe-lg-5 ">
+            <h1 class="display-1 display-lg-2 fw-normal my-3 color-primary">Elige a tu Presidente</h1>
+            <p class="mb-0 col-sm-10 col-md-8 mx-auto col-lg-12 color-secondary">Esto es un sondeo electoral virtual donde podrás votar a tu presidente según tus preferencias ingresando tu DNI y validándolo.</p>
+          </div>
+          <div class="col-10 col-sm-8 col-md-6 mx-auto offset-lg-0 col-lg-7 order-2 d-flex align-items-start align-items-lg-center justify-content-center ps-lg-5">
+            <img src="/images/peru.jpg" class="img-fluid rounded rounded-pill" alt="Candidato">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+   <section class="candidatos">
+      <div class="candidato candidato1 position-relative">
+        <div class="overlay position-absolute top-0 start-0 end-0 bottom-0 d-flex flex-column align-items-center justify-content-center">
+          <img src="/images/CUÑA/Alianza para el progreso.jpg" class="rounded-circle mb-2" alt="alianza-para-el-progreso">
+          <h3 class="d-none d-lg-block lead text-white">Cesar Acuña</h3>
+          <div class="d-flex flex-column align-items-center">
+            <h4 class="fw-bolder mb-3 text-white text-center">"ALIANZA PARA EL PROGRESO"</h4>
+            <button type="button" class="btn-realizar btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#examplemodal" data-participante="acuna">Realizar Votación</button>
+          </div>
+        </div>
+      </div>
+      <div class="candidato candidato2">
+        <div class="overlay position-absolute top-0 start-0 end-0 bottom-0 d-flex flex-column align-items-center justify-content-center">
+          <img src="/images/GEORGE/Victoria Nacional.jpg" class="rounded mb-2" alt="alianza-para-el-progreso">
+          <h3 class="d-none d-lg-block lead text-white">George Forsyth Sommer</h3>
+          <div class="d-flex flex-column align-items-center">
+            <h4 class="fw-bolder mb-3 text-white text-center">"VICTORIA NACIONAL"</h4>
+            <button type="button" class="btn-realizar btn btn-lg btn-danger" data-bs-toggle="modal" data-bs-target="#examplemodal" data-participante="forsyth">Realizar Votación</button>
+          </div>
+        </div>
+      </div>
+      <div class="candidato candidato3">
+        <div class="overlay position-absolute top-0 start-0 end-0 bottom-0 d-flex flex-column align-items-center justify-content-center">
+          <img src="/images/HERNANDO/Avanza Pais.jpg" class="rounded mb-2" alt="alianza-para-el-progreso">
+          <h3 class="d-none d-lg-block lead text-white">Hernando de Soto</h3>
+          <div class="d-flex flex-column align-items-center">
+            <h4 class="fw-bolder mb-3 text-white text-center">"AVANZA PAIS"</h4>
+            <button type="button" class="btn-realizar btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#examplemodal" data-participante="soto">Realizar Votación</button>
+          </div>
+        </div>
+      </div>
+      <div class="candidato candidato4">
+         <div class="overlay position-absolute top-0 start-0 end-0 bottom-0 d-flex flex-column align-items-center justify-content-center">
+          <img src="/images/HUMALA/Partido Nacionalista.jpg" class="rounded mb-2" alt="alianza-para-el-progreso">
+          <h3 class="d-none d-lg-block lead text-white">Ollanta Humala</h3>
+          <div class="d-flex flex-column align-items-center">
+            <h4 class="fw-bolder mb-3 text-white text-center">"PARTIDO NACIONALISTA"</h4>
+            <button type="button" class="btn-realizar btn btn-lg btn-danger" data-bs-toggle="modal" data-bs-target="#examplemodal" data-participante="humala">Realizar Votación</button>
+          </div>
+        </div>
+        
+      </div>
+      <div class="candidato candidato5">
+        <div class="overlay position-absolute top-0 start-0 end-0 bottom-0 d-flex flex-column align-items-center justify-content-center">
+          <img src="/images/JONY/Accion Popular.jpg" class="rounded mb-2" alt="alianza-para-el-progreso">
+          <h3 class="d-none d-lg-block lead text-white">Yonhy Lescano</h3>
+          <div class="d-flex flex-column align-items-center">
+            <h4 class="fw-bolder mb-3 text-white text-center">"ACCION POPULAR"</h4>
+            <button type="button" class="btn-realizar btn btn-lg btn-danger" data-bs-toggle="modal" data-bs-target="#examplemodal" data-participante="lescano">Realizar Votación</button>
+          </div>
+        </div>
+        
+      </div>
+      <div class="candidato candidato6">
+         <div class="overlay position-absolute top-0 start-0 end-0 bottom-0 d-flex flex-column align-items-center justify-content-center">
+          <img src="/images/JULIO/Partido Morado.jpg" class="rounded mb-2" alt="alianza-para-el-progreso">
+          <h3 class="d-none d-lg-block lead text-white">Julio Guzman</h3>
+          <div class="d-flex flex-column align-items-center">
+            <h4 class="fw-bolder mb-3 text-white text-center">"PARTIDO MORADO"</h4>
+            <button type="button" class="btn-realizar btn btn-lg btn-secondary" data-bs-toggle="modal" data-bs-target="#examplemodal" data-participante="guzman">Realizar Votación</button>
+          </div>
+        </div>
+       
+      </div>
+      <div class="candidato candidato7">
+         <div class="overlay position-absolute top-0 start-0 end-0 bottom-0 d-flex flex-column align-items-center justify-content-center">
+          <img src="/images/KEIKO/Fuerza Popular.jpg" class="rounded-circle mb-2" alt="alianza-para-el-progreso">
+          <h3 class="d-none d-lg-block lead text-white">Keiko Fujimori</h3>
+          <div class="d-flex flex-column align-items-center">
+            <h4 class="fw-bolder mb-3 text-white text-center">"FUERZA POPULAR"</h4>
+            <button type="button" class="btn-realizar btn btn-lg btn-warning" data-bs-toggle="modal" data-bs-target="#examplemodal" data-participante="fujimori">Realizar Votación</button>
+          </div>
+        </div>
+      </div>
+      <div class="candidato candidato8">
+         <div class="overlay position-absolute top-0 start-0 end-0 bottom-0 d-flex flex-column align-items-center justify-content-center">
+          <img src="/images/MRCO/Frente Amplio.jpg" class="rounded-circle mb-2" alt="alianza-para-el-progreso">
+          <h3 class="d-none d-lg-block lead text-white">Marco Arana</h3>
+          <div class="d-flex flex-column align-items-center">
+            <h4 class="fw-bolder mb-3 text-white text-center">"FRENTE AMPLIO"</h4>
+            <button type="button" class="btn-realizar btn btn-lg btn-dark" data-bs-toggle="modal" data-bs-target="#examplemodal" data-participante="arana">Realizar Votación</button>
+          </div>
+        </div>
+      </div>
+      <div class="candidato candidato9">
+         <div class="overlay position-absolute top-0 start-0 end-0 bottom-0 d-flex flex-column align-items-center justify-content-center">
+          <img src="/images/PEDRO/Peru Libre.jpg" class="rounded mb-2" alt="alianza-para-el-progreso">
+          <h3 class="d-none d-lg-block lead text-white">Pedro Castilla</h3>
+          <div class="d-flex flex-column align-items-center">
+            <h4 class="fw-bolder mb-3 text-white text-center">"PERU LIBRE"</h4>
+            <button type="button" class="btn-realizar btn btn-lg btn-castilla" data-bs-toggle="modal" data-bs-target="#examplemodal" data-participante="castilla">Realizar Votación</button>
+          </div>
+        </div>
+      </div>
+      <div class="candidato candidato10">
+        <div class="overlay position-absolute top-0 start-0 end-0 bottom-0 d-flex flex-column align-items-center justify-content-center">
+          <img src="/images/RAFAEL/Renovacion Popular.jpg" class="rounded mb-2" alt="alianza-para-el-progreso">
+          <h3 class="d-none d-lg-block lead text-white">Rafael Lopez</h3>
+          <div class="d-flex flex-column align-items-center">
+            <h4 class="fw-bolder mb-3 text-white text-center">"RENOVACION POPULAR"</h4>
+            <button type="button" class="btn-realizar btn btn-lg btn-porky" data-bs-toggle="modal" data-bs-target="#examplemodal" data-participante="lopez">Realizar Votación</button>
+          </div>
+        </div>
+      </div>
+      <div class="candidato candidato11">
+        <div class="overlay position-absolute top-0 start-0 end-0 bottom-0 d-flex flex-column align-items-center justify-content-center">
+          <img src="/images/URRESTI/Podemos Peru.jpg" class="rounded mb-2" alt="alianza-para-el-progreso">
+          <h3 class="d-none d-lg-block lead text-white">Daniel Urresti</h3>
+          <div class="d-flex flex-column align-items-center">
+            <h4 class="fw-bolder mb-3 text-white text-center">"PODEMOS PERU"</h4>
+            <button type="button" class="btn-realizar btn btn-lg btn-info" data-bs-toggle="modal" data-bs-target="#examplemodal" data-participante="urresti">Realizar Votación</button>
+          </div>
+        </div>
+      </div>
+      <div class="candidato candidato12">
+         <div class="overlay position-absolute top-0 start-0 end-0 bottom-0 d-flex flex-column align-items-center justify-content-center">
+          <img src="/images/VERONICA/Juntos por el Peru.jpg" class="rounded-circle mb-2" alt="alianza-para-el-progreso">
+          <h3 class="d-none d-lg-block lead text-white">Veronika Mendoza</h3>
+          <div class="d-flex flex-column align-items-center">
+            <h4 class="fw-bolder mb-3 text-white text-center">"JUNTOS POR EL PERU"</h4>
+            <button type="button" class="btn-realizar btn btn-lg btn-success" data-bs-toggle="modal" data-bs-target="#examplemodal" data-participante="mendoza">Realizar Votación</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="examplemodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body text-center">
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form action="">
+                <div class="row justify-content-center">
+                  <h5 class="lead fw-normal mb-3 text-danger">INGRESE SU DNI</h2>
+                  <div class="col-12 col-md-8 mb-4">
+                    <input type="text" class="field-dni form-control form-control" placeholder="Ejm: 72345128">
+                  </div>
+                </div>
+                <button type="button" class="btn-validar btn btn-sm btn-danger mb-3 btn-">VALIDAR</button>
+                <div class="row justify-content-center">
+                  <h5 class="lead fw-normal mb-3 text-danger">INGRESE SUS APELLIDOS</h2>
+                  <div class="col-12 col-md-8 mb-4">
+                    <input type="text" class="field-apellidos form-control form-control" disabled>
+                  </div>
+                  <h5 class="lead fw-normal mb-3 text-danger">INGRESE SUS NOMBRES</h2>
+                  <div class="col-12 col-md-8 mb-4">
+                    <input type="text" class="field-nombres form-control form-control" disabled>
+                  </div>
+                </div>
+                <button type="submit" class="btn-votar btn btn-lg btn-outline-danger mb-3">VOTAR</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+ <%- include('./partials/footerView.ejs'); %>
+  
+
+  <script src="/js/bootstrap.bundle.js"></script>
+  <script src="/dist/bundle.js"></script>
+</body>
+</html>
