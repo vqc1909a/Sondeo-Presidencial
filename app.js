@@ -75,7 +75,9 @@ app.post('/enviar-datos', async (req, res) => {
 })
 
 app.use('/', (req, res) => {
-  return res.render('pageNotFoundView');
+  return res.render('pageNotFoundView', {
+    title: "Page Not Found"
+  });
 })
 
 

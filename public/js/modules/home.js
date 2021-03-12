@@ -54,6 +54,14 @@ if(btn_votar){
     e.preventDefault();
     console.log(field_dni.value);
     
+    if(new Date(2021, 4, 31).getTime() < new Date().getTime()){
+       Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'VOTACION CONCLUIDA! VEA RESULTADOS',
+      })
+      return null;
+    }
     if(field_nombres.value.trim().length === 0 || field_apellidos.value.trim().length === 0){
       Swal.fire({
         icon: 'error',

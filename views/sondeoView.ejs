@@ -56,9 +56,9 @@
             width: "100%"
         },
         //Estos son los colores de los tooltips que vuelan de cada grafico
-        colors: ["#17509B", "#EB1C24", "#153F93", "#DA251C", "#CD3333", "#4F1B7F", "#EC6E00", "#4E6604", "#FAB500", "#61ABD8", "#0B4E9D", "#61BD10"],
+        // colors: ["#17509B", "#EB1C24", "#153F93", "#DA251C", "#CD3333", "#4F1B7F", "#EC6E00", "#4E6604", "#FAB500", "#61ABD8", "#0B4E9D", "#61BD10"],
         fill: {
-            colors: ["#17509B", "#EB1C24", "#153F93", "#DA251C", "#CD3333", "#4F1B7F", "#EC6E00", "#4E6604", "#FAB500", "#61ABD8", "#0B4E9D", "#61BD10"],
+            // colors: ["#17509B", "#EB1C24", "#153F93", "#DA251C", "#CD3333", "#4F1B7F", "#EC6E00", "#4E6604", "#FAB500", "#61ABD8", "#0B4E9D", "#61BD10"],
             opacity: 0.9,
             type: 'solid',
             gradient: {
@@ -115,7 +115,7 @@
                 height: 20,
                 strokeWidth: 5,
                 strokeColor: '#fff',
-                fillColors: ["#17509B", "#EB1C24", "#153F93", "#DA251C", "#CD3333", "#4F1B7F", "#EC6E00", "#4E6604", "#FAB500", "#61ABD8", "#0B4E9D", "#61BD10"],
+                // fillColors: ["#17509B", "#EB1C24", "#153F93", "#DA251C", "#CD3333", "#4F1B7F", "#EC6E00", "#4E6604", "#FAB500", "#61ABD8", "#0B4E9D", "#61BD10"],
                 radius: 20,
                 customHTML: undefined,
                 onClick: undefined,
@@ -144,50 +144,50 @@
                     position: 'bottom'
                 }
             }
+        }, 
+        {
+            breakpoint: 576,
+            options: {
+                chart: {
+                    width: "100%",
+                    height: "500"
+                },
+                legend: {
+                    show: false,
+                }
+            }
         }
-        // , 
-        // {
-        //     breakpoint: 576,
-        //     options: {
-        //         // chart: {
-        //         //     width: 200
-        //         // },
-        //         legend: {
-        //             show: false,
-        //         }
-        //     }
-        // }
         ],
         dataLabels: {
             
             style: {
-                fontSize: '14px',
-                fontFamily: 'Helvetica, Arial, sans-serif',
-                fontWeight: 'normal',
+                fontSize: '16px',
+                fontFamily: 'Arial, Helvetica,sans-serif',
+                fontWeight: 'light',
                 colors: ['#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000', '#000']
             },
-            background: {
-                enabled: true,
-                foreColor: '#fff',
-                padding: 5,
-                borderRadius: 2,
-                borderWidth: 1,
-                borderColor: '#fff',
-                opacity: 0.6,
-                dropShadow: {
-                    enabled: false,
-                    top: 1,
-                    left: 1,
-                    blur: 1,
-                    color: '#000',
-                    opacity: 0.45
-                }
-            }
+            // background: {
+            //     enabled: true,
+            //     foreColor: '#fff',
+            //     padding: 5,
+            //     borderRadius: 2,
+            //     borderWidth: 1,
+            //     borderColor: '#fff',
+            //     opacity: 0.6,
+            //     dropShadow: {
+            //         enabled: false,
+            //         top: 1,
+            //         left: 1,
+            //         blur: 1,
+            //         color: '#000',
+            //         opacity: 0.45
+            //     }
+            // }
         },
         title: {
             text: 'Distribución Porcentual de Votos',
             align: 'center',
-            margin: 60,
+            margin: 100,
             floating: true,
             style: {
                 fontSize:  '20px',
@@ -221,24 +221,21 @@
               },
             }
         },
-        colors: ["rgba(23, 80, 155, .6)", "rgba(235, 28, 36, .6)", "rgba(21, 63, 147, .6)", "rgba(218, 37, 28, .6)", "rgba(205, 51, 51, .6)", "rgba(79, 27, 127, .6)", "rgba(236, 110, 0, .6)", "rgba(78, 102, 4, .6)", "rgba(250, 181, 0, .6)", "rgba(97, 171, 216, .6)", "rgba(11, 78, 157, .6)", "rgba(97, 189, 16, .6)"],
+        // colors: ["rgba(23, 80, 155, .6)", "rgba(235, 28, 36, .6)", "rgba(21, 63, 147, .6)", "rgba(218, 37, 28, .6)", "rgba(205, 51, 51, .6)", "rgba(79, 27, 127, .6)", "rgba(236, 110, 0, .6)", "rgba(78, 102, 4, .6)", "rgba(250, 181, 0, .6)", "rgba(97, 171, 216, .6)", "rgba(11, 78, 157, .6)", "rgba(97, 189, 16, .6)"],
 
         dataLabels: {
               enabled: true,
               textAnchor: 'start',
               style: {
-                colors: ['#fff'],
-                fontSize: '12px',
-                fontFamily: 'Helvetica, Arial, sans-serif',
-                fontWeight: 'normal',
+                colors: ['#000'],
+                fontSize: '14px',
+                fontFamily: 'Arial, Helvetica, sans-serif',
+                fontWeight: 'light',
               },
               formatter: function (val, opt) {
                 return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val
               },
-              offsetX: 0,
-              dropShadow: {
-                enabled: true
-              }
+              offsetX: 0
             },
         stroke: {
               width: 1,
