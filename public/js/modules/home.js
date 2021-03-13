@@ -1,11 +1,12 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import {quitarAcentos} from '../../../helpers';
 const btns_realizar = document.querySelectorAll(".btn-realizar");
 const field_dni = document.querySelector('.field-dni');
 const field_nombres = document.querySelector('.field-nombres');
 const field_apellidos = document.querySelector('.field-apellidos');
+const field_direccion = document.querySelector('.field-direccion');
 const btn_votar = document.querySelector('.btn-votar');
-const btn_validar = document.querySelector('.btn-validar');
 let candidato;
 
 if(btns_realizar.length !== 0){
@@ -19,40 +20,10 @@ if(btns_realizar.length !== 0){
   })
 }
 
-if(btn_validar){
-  btn_validar.addEventListener('click', () => {
-    if(field_dni.value.trim().length !== 8 || field_dni.value.trim().search(/[^0-9]/) !== -1){
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Ingrese un DNI válido!',
-      })
-      return null;
-    } 
-  
-    let valor_dni = field_dni.value.trim();
-    axios.get(`https://dniruc.apisperu.com/api/v1/dni/${valor_dni}?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZxYzE5MDlhQGdtYWlsLmNvbSJ9.aa1v3PWJrN9UTkw195QgQYTVlmOd70KBor9LRLadEig`).then((response)=>{
-      const {data} = response;
-      const {nombres, apellidoPaterno, apellidoMaterno} = data;
-      field_nombres.value = nombres;
-      field_apellidos.value = apellidoPaterno + " " + apellidoMaterno;
-    }).catch((err) => {
-        console.log(err.message);
-        field_dni.value = "";
-        Swal.fire({
-          icon: 'error',
-          title: 'Ocurrió un error!',
-          text: 'INTENTELO DE NUEVO',
-        })
-    })
-  })
-}
-
 
 if(btn_votar){
     btn_votar.addEventListener('click', function(e){
     e.preventDefault();
-    console.log(field_dni.value);
     
     if(new Date(2021, 4, 31).getTime() < new Date().getTime()){
        Swal.fire({
@@ -62,21 +33,72 @@ if(btn_votar){
       })
       return null;
     }
-    if(field_nombres.value.trim().length === 0 || field_apellidos.value.trim().length === 0){
+
+    if(field_dni.value.trim().length !== 8 || field_dni.value.trim().search(/[^0-9]/) !== -1){
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Por Favor Valide Sus Datos!',
+        text: 'Ingrese un DNI válido!',
+      })
+      return null;
+    } 
+
+    if(field_apellidos.value.trim().length === 0){
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Por Favor Ingrese sus Apellidos',
+      })
+      return null;
+    } 
+
+    if(field_nombres.value.trim().length === 0 ){
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Por Favor Ingrese sus Nombres',
       })
       return null;
     }
+    if(field_direccion.value.trim().length === 0 ){
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Por Favor Ingrese Provincia / Distrito',
+      })
+      return null;
+    }
+
+
+
+    
   
     let valor_dni = field_dni.value.trim();
+    let direccion = field_direccion.value.trim();
+    let valor_nombres =  quitarAcentos(field_nombres.value.trim());
+    let valor_apellidos = quitarAcentos(field_apellidos.value.trim());
+
     axios.get(`https://dniruc.apisperu.com/api/v1/dni/${valor_dni}?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InZxYzE5MDlhQGdtYWlsLmNvbSJ9.aa1v3PWJrN9UTkw195QgQYTVlmOd70KBor9LRLadEig`).then((response)=>{
       const {data} = response;
-      const {dni, nombres, apellidoPaterno, apellidoMaterno} = data;
+      const {nombres, apellidoPaterno, apellidoMaterno} = data;
 
-      const body = {dni, nombres, apellidoPaterno, apellidoMaterno, candidato}
+      let path_apellidos = new RegExp(valor_apellidos, "ig");
+      let path_nombres = new RegExp(valor_nombres, "ig");
+      
+      if(`${apellidoPaterno} ${apellidoMaterno}`.search(path_apellidos) === -1 || nombres.search(path_nombres) === -1){
+        field_dni.value = "";
+        field_nombres.value = "";
+        field_apellidos.value = "";
+        field_direccion.value = "";
+        Swal.fire({
+          icon: 'error',
+          title: 'Datos erróneos!',
+          text: 'Ingrese Nuevamente sus Datos',
+        })
+        return null;
+      }
+
+      let body = {...data, candidato, direccion}
       axios.post('/enviar-datos', body).then((response)=>{
         const {data} = response;
         Swal.fire({
@@ -94,6 +116,7 @@ if(btn_votar){
         field_dni.value = "";
         field_nombres.value = "";
         field_apellidos.value = "";
+        field_direccion.value = "";
         Swal.fire({
           icon: 'error',
           title: 'Ocurrió un error!',
@@ -105,6 +128,7 @@ if(btn_votar){
       field_dni.value = "";
       field_nombres.value = "";
       field_apellidos.value = "";
+      field_direccion.value = "";
       Swal.fire({
         icon: 'error',
         title: 'Ocurrió un error!',

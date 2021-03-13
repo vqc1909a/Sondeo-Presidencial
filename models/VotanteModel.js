@@ -20,6 +20,10 @@ const VotanteSchema = mongoose.Schema({
   candidato: {
     type: String,
     required: true,
+  },
+  direccion: {
+    type: String,
+    required: true,
   }
 })
 const Votante = mongoose.model('Votante', VotanteSchema);
