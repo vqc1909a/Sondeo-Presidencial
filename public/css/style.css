@@ -106,7 +106,7 @@
 
 .candidato1{
   grid-area: candidato1;
-  background-image: url(/images/CUÑA/Cesar\ Acuña.jpg);
+  background-image: url(/images/CUÑA/Cesar_Acuña.jpg);
 }
 .candidato2{
   grid-area: candidato2;
@@ -114,45 +114,45 @@
 }
 .candidato3{
   grid-area: candidato3;
-  background-image: url(/images/HERNANDO/Hernando\ de\ Soto.jpg);
+  background-image: url(/images/HERNANDO/Hernando_de_Soto.jpg);
 }
 .candidato4{
   grid-area: candidato4;
-  background-image: url(/images/HUMALA/Ollanta\ Humala.jpg);
+  background-image: url(/images/HUMALA/Ollanta_Humala.jpg);
 }
 .candidato5{
   grid-area: candidato5;
-  background-image: url(/images/JONY/Yonhy\ Lescano.jpg);
+  background-image: url(/images/JONY/Yonhy_Lescano.jpg);
 
 }
 .candidato6{
   grid-area: candidato6;
-  background-image: url(/images/JULIO/Julio\ Guzman.jpg);
+  background-image: url(/images/JULIO/Julio_Guzman.jpg);
 
 }
 .candidato7 {
   grid-area: candidato7;
-  background-image: url(/images/KEIKO/keiko\ Fujimori.jpg);
+  background-image: url(/images/KEIKO/keiko_Fujimori.jpg);
 }
 .candidato8 {
   grid-area: candidato8;
-  background-image: url(/images/MRCO/Marco\ Arana.jpg);
+  background-image: url(/images/MRCO/Marco_Arana.jpg);
 }
 .candidato9 {
   grid-area: candidato9;
-  background-image: url(/images/PEDRO/Pedro\ Castillo.jpg);
+  background-image: url(/images/PEDRO/Pedro_Castillo.jpg);
 }
 .candidato10 {
   grid-area: candidato10;
-  background-image: url(/images/RAFAEL/Rafael\ Lopez.jpg);
+  background-image: url(/images/RAFAEL/Rafael_Lopez.jpg);
 }
 .candidato11 {
   grid-area: candidato11;
-  background-image: url(/images/URRESTI/Daniel\ Urresti.jpg);
+  background-image: url(/images/URRESTI/Daniel_Urresti.jpg);
 }
 .candidato12 {
   grid-area: candidato12;
-  background-image: url(/images/VERONICA/Veronika\ Mendoza.jpg);
+  background-image: url(/images/VERONICA/Veronika_Mendoza.jpg);
 }
 .overlay{
   opacity: 1;
