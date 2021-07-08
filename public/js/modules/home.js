@@ -25,15 +25,6 @@ if(btn_votar){
     btn_votar.addEventListener('click', function(e){
     e.preventDefault();
     
-    if(new Date(2021, 4, 31).getTime() < new Date().getTime()){
-       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'VOTACION CONCLUIDA! VEA RESULTADOS',
-      })
-      return null;
-    }
-
     if(field_dni.value.trim().length !== 8 || field_dni.value.trim().search(/[^0-9]/) !== -1){
       Swal.fire({
         icon: 'error',

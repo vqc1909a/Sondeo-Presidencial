@@ -4,7 +4,7 @@ const app = express();
 const connectDB = require('./config/db');
 const bodyParser = require('body-parser');
 const Votante = require('./models/VotanteModel');
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 4000;
 connectDB();
 
 app.set('view engine', 'ejs');
@@ -21,8 +21,8 @@ app.get('/', (req, res) => {
     title: "Voto Libre"
   });
 })
-app.get('/sondeo', async (req, res) => {
 
+app.get('/sondeo', async (req, res) => {
   const acunaPromise = Votante.find({candidato: "acuna"});
   const forsythPromise = Votante.find({candidato: "forsyth"});
   const sotoPromise = Votante.find({candidato: "soto"});
